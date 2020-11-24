@@ -131,28 +131,12 @@ function initialize() {
 		onEachFeature: function( feature, layer )
 				{
 				// paramétrage de la popup de la couche "com"	
-				layer.bindPopup( '<b>'+ feature.properties.nom + '</b>')
+				layer.bindPopup( '<b>'+ feature.properties.details + '</b>')
 				}
 		}).addTo(map);
 		});
 
-
-		// création d'une couche geoJson qui appelle le fichier "com4_projets_pat.geojson"			
-		var com_proj = $.getJSON("com4_projets_pat.geojson",function(dataComProj)
-					{L.geoJson( dataComProj, 
-						{style: function(feature)
-							{	
-							// paramétrage de la symbologie de la couche "com_proj"
-							return { color: "LightCoral", weight: 2, fillColor: 'LightCoral', fillOpacity: .5 };
-							},
-		onEachFeature: function( feature, layer )
-				{
-				// paramétrage de la popup de la couche "com_proj"	
-				layer.bindPopup(  '<b>'+ feature.properties.nom + '</b><br>'+ feature.properties.nb_projet + " projet(s) patrimoine")
-				}
-		}).addTo(map);
-		});
-															
+						
 		// création d'une couche geoJson qui appelle le fichier "projet_pat.geojson"													
 		var projets= $.getJSON("test_point.geojson",function(dataPoint)
 										// icone Clap	
