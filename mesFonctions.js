@@ -54,84 +54,30 @@ function initialize() {
 		});
 
 		// création du style des circuits
-		
+		function getColor(d) {
+			return d = 1 ? '#3250e4' :
+				   d = 2 ? '#e0be25' :
+				   d = 3 ? '#006400' :
+				   d = 4 ? '#9932CC' :
+				   d = 5 ? '#FF8C00' :
+				   		   '#8B0000' ;
+		}
 
 		// création d'une couche geoJson qui appelle le fichier "circuits_long_v1.geojson"			
 		var circuit = $.getJSON("circuits_long_v1.geojson",function(dataCircuit)
 					{L.geoJson( dataCircuit, 
-						{style: function style_circuits_long_0_0(feature) {
-							switch(String(feature.properties['nom'])) {
-								case 'De la Maison éclusière à la Maison des marais':
-									return {
-								pane: 'pane_circuits_long_0',
+						{style: function(feature) 
+							{
+							return {
+								weight : 2,
 								opacity: 1,
-								color: 'rgba(50,80,228,1.0)',
-								dashArray: '',
-								lineCap: 'square',
-								lineJoin: 'bevel',
-								weight: 9.0,
-								fillOpacity: 0,
-								interactive: false,
-							}
-									break;
-								case 'La Somme et le Bel étang':
-									return {
-								pane: 'pane_circuits_long_0',
-								opacity: 1,
-								color: 'rgba(224,190,37,1.0)',
-								dashArray: '',
-								lineCap: 'square',
-								lineJoin: 'bevel',
-								weight: 9.0,
-								fillOpacity: 0,
-								interactive: false,
-							}
-									break;
-								case 'Le tour des tourbières':
-									return {
-								pane: 'pane_circuits_long_0',
-								opacity: 1,
-								color: 'rgba(60,238,20,1.0)',
-								dashArray: '',
-								lineCap: 'square',
-								lineJoin: 'bevel',
-								weight: 9.0,
-								fillOpacity: 0,
-								interactive: false,
-							}
-									break;
-								case 'Les hauteurs de Long':
-									return {
-								pane: 'pane_circuits_long_0',
-								opacity: 1,
-								color: 'rgba(88,209,187,1.0)',
-								dashArray: '',
-								lineCap: 'square',
-								lineJoin: 'bevel',
-								weight: 9.0,
-								fillOpacity: 0,
-								interactive: false,
-							}
-									break;
-								case 'Long et ses étangs':
-									return {
-								pane: 'pane_circuits_long_0',
-								opacity: 1,
-								color: 'rgba(207,113,225,1.0)',
-								dashArray: '',
-								lineCap: 'square',
-								lineJoin: 'bevel',
-								weight: 9.0,
-								fillOpacity: 0,
-								interactive: false,
-							}
-									break;
-							}
+								color: getColor(feature.properties.id)
+							};
 						},
 		onEachFeature: function( feature, layer )
 				{
 				// paramétrage de la popup de la couche "com"	
-				layer.bindPopup( '<b>'+ feature.properties.details + '</b>')
+				layer.bindPopup( '<b>'+ feature.properties.nom + '</b>')
 				}
 		}).addTo(map);
 		});
