@@ -75,13 +75,13 @@ function initialize() {
 		// création d'une couche geoJson qui appelle le fichier "circuits_long_v1.geojson"			
 		var circuit = $.getJSON("circuits_long_v1.geojson",function(dataCircuit)
 					{L.geoJson( dataCircuit, 
-						{style: style}
+						{style: style
 						},
-		onEachFeature: function( feature, layer )
+			//onEachFeature: function( feature, layer )
 				{
 				// paramétrage de la popup de la couche "com"	
-				layer.bindPopup( '<b>'+ feature.properties.nom + '</b>')
-				}
+			//	layer.bindPopup( '<b>'+ feature.properties.nom + '</b>')
+				
 		}).addTo(map);
 		});
 
