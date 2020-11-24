@@ -53,14 +53,81 @@ function initialize() {
 		}).addTo(map);
 		});
 
-		// création d'une couche geoJson qui appelle le fichier "com_sans_proj.geojson"			
-		var com = $.getJSON("com_sans_proj.geojson",function(dataCom)
-					{L.geoJson( dataCom, 
-						{style: function(feature)
-							{	
-							// paramétrage de la symbologie de la couche "com"
-							return { color: "#000000", weight: 0.3, fillColor: "#FFFFFF" , fillOpacity: 0 };
-							},
+		// création du style des circuits
+		
+
+		// création d'une couche geoJson qui appelle le fichier "circuits_long_v1.geojson"			
+		var circuit = $.getJSON("circuits_long_v1.geojson",function(dataCircuit)
+					{L.geoJson( dataCircuit, 
+						{style: function style_circuits_long_0_0(feature) {
+							switch(String(feature.properties['nom'])) {
+								case 'De la Maison éclusière à la Maison des marais':
+									return {
+								pane: 'pane_circuits_long_0',
+								opacity: 1,
+								color: 'rgba(50,80,228,1.0)',
+								dashArray: '',
+								lineCap: 'square',
+								lineJoin: 'bevel',
+								weight: 9.0,
+								fillOpacity: 0,
+								interactive: false,
+							}
+									break;
+								case 'La Somme et le Bel étang':
+									return {
+								pane: 'pane_circuits_long_0',
+								opacity: 1,
+								color: 'rgba(224,190,37,1.0)',
+								dashArray: '',
+								lineCap: 'square',
+								lineJoin: 'bevel',
+								weight: 9.0,
+								fillOpacity: 0,
+								interactive: false,
+							}
+									break;
+								case 'Le tour des tourbières':
+									return {
+								pane: 'pane_circuits_long_0',
+								opacity: 1,
+								color: 'rgba(60,238,20,1.0)',
+								dashArray: '',
+								lineCap: 'square',
+								lineJoin: 'bevel',
+								weight: 9.0,
+								fillOpacity: 0,
+								interactive: false,
+							}
+									break;
+								case 'Les hauteurs de Long':
+									return {
+								pane: 'pane_circuits_long_0',
+								opacity: 1,
+								color: 'rgba(88,209,187,1.0)',
+								dashArray: '',
+								lineCap: 'square',
+								lineJoin: 'bevel',
+								weight: 9.0,
+								fillOpacity: 0,
+								interactive: false,
+							}
+									break;
+								case 'Long et ses étangs':
+									return {
+								pane: 'pane_circuits_long_0',
+								opacity: 1,
+								color: 'rgba(207,113,225,1.0)',
+								dashArray: '',
+								lineCap: 'square',
+								lineJoin: 'bevel',
+								weight: 9.0,
+								fillOpacity: 0,
+								interactive: false,
+							}
+									break;
+							}
+						},
 		onEachFeature: function( feature, layer )
 				{
 				// paramétrage de la popup de la couche "com"	
