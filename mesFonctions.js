@@ -61,18 +61,21 @@ function initialize() {
 				   d = '4' ? '#9932CC' :
 				   d = '5' ? '#FF8C00' :
 				   		     '#8B0000' ;
-		}
+		};
 
-		// création d'une couche geoJson qui appelle le fichier "circuits_long_v1.geojson"			
-		var circuit = $.getJSON("circuits_long_v1.geojson",function(dataCircuit)
-					{L.geoJson( dataCircuit, 
-						{style: function(feature) 
+		function style(feature) 
 							{
 							return {
 								weight : 2,
 								opacity: 1,
 								color: getColor(feature.properties.id)
 							};
+						}
+
+		// création d'une couche geoJson qui appelle le fichier "circuits_long_v1.geojson"			
+		var circuit = $.getJSON("circuits_long_v1.geojson",function(dataCircuit)
+					{L.geoJson( dataCircuit, 
+						{style: style}
 						},
 		onEachFeature: function( feature, layer )
 				{
