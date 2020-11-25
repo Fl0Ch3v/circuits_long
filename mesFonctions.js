@@ -38,20 +38,20 @@ function initialize() {
 		});
 
 		// création d'une couche geoJson qui appelle le fichier "pah_perim.geojson"			
-		var pah = $.getJSON("pah_perim.geojson",function(dataPah)
-					{L.geoJson( dataPah, 
-						{style: function(feature)
-							{	
+		//var pah = $.getJSON("pah_perim.geojson",function(dataPah)
+		//			{L.geoJson( dataPah, 
+		//				{style: function(feature)
+		//					{	
 							// paramétrage de la symbologie de la couche "pah"
-							return { color: "#319098", weight: 0, fillColor: '#319098', fillOpacity: .3 };
-							},
-		onEachFeature: function( feature, layer )
-				{
+		//					return { color: "#319098", weight: 0, fillColor: '#319098', fillOpacity: .3 };
+		//					},
+		//onEachFeature: function( feature, layer )
+		//		{
 				// paramétrage de la popup de la couche "pah"	
-				layer.bindPopup( "<b>Pays d'Art et d'Histoire</b><br><b>Ponthieu - Baie de Somme</b>")
-				}
-		}).addTo(map);
-		});
+		//		layer.bindPopup( "<b>Pays d'Art et d'Histoire</b><br><b>Ponthieu - Baie de Somme</b>")
+		//		}
+	//	}).addTo(map);
+	//	});
 
 		// création du style des circuits
 		function getColor(d) {
