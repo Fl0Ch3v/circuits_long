@@ -55,12 +55,12 @@ function initialize() {
 
 		// création du style des circuits
 		function getColor(d) {
-			return d = '1' ? '#3250e4' :
+			return d = '1' ? '#7FFF00' :
 				   d = '2' ? '#e0be25' :
 				   d = '3' ? '#006400' :
 				   d = '4' ? '#9932CC' :
 				   d = '5' ? '#FF8C00' :
-				   		     '#8B0000' ;
+				   		     '#8A2BE2' ;
 		};
 
 		function style(feature) 
