@@ -86,7 +86,7 @@ function initialize() {
 		onEachFeature: function( feature, layer )
 				{
 				// paramétrage de la popup de la couche "com"	
-				layer.bindPopup( '<b>'+ feature.properties.nom + '</b>')
+				layer.bindPopup( '<b>'+ feature.properties.id + '</b>')
 				}
 		}).addTo(map);
 		});
