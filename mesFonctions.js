@@ -78,7 +78,7 @@ function initialize() {
 						{style: function(feature) 
 							{
 							return {
-								weight : 2,
+								weight : 5,
 								opacity: 1,
 								color: getColor(feature.properties.id)
 							};
