@@ -87,8 +87,8 @@ function initialize() {
 				{
 				// paramétrage de la popup de la couche "com"	
 				layer.bindPopup( '<b>'+ feature.properties.nom + '</b><br>'
-								+ "Distance : " + feature.properties.distance
-								+ feature.properties.duree_pied + " à pied"
+								+ "Distance : " + feature.properties.distance + '<br>'
+								+ feature.properties.duree_pied + " à pied" + '<br>'
 								+ feature.properties.duree_velo + " à vélo")
 				}
 		}).addTo(map);
@@ -120,5 +120,10 @@ function initialize() {
 			"OpenStreetMap": osmLayer,
 			"OSM_Géo2France" : osmG2FLayer
 		};
+
+		var circuit1 = 
+		var circuitsLayers = {
+			"Circuit n°1" : 
+		}
 		L.control.layers(baseLayers).addTo(map);
 }
