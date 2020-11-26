@@ -86,7 +86,10 @@ function initialize() {
 		onEachFeature: function( feature, layer )
 				{
 				// paramétrage de la popup de la couche "com"	
-				layer.bindPopup( '<b>'+ feature.properties.id + '</b>')
+				layer.bindPopup( '<b>'+ feature.properties.nom + '</b><br>'
+								+ "Distance : " + feature.properties.distance
+								+ feature.properties.duree_pied + " à pied"
+								+ feature.properties.duree_velo + " à vélo")
 				}
 		}).addTo(map);
 		});
