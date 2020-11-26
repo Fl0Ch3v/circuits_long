@@ -121,9 +121,5 @@ function initialize() {
 			"OSM_Géo2France" : osmG2FLayer
 		};
 
-		var circuit1 = 
-		var circuitsLayers = {
-			"Circuit n°1" : 
-		}
 		L.control.layers(baseLayers).addTo(map);
 }
