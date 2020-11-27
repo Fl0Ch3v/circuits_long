@@ -36,6 +36,7 @@ function initialize() {
 				}
 		}).addTo(map);
 		});
+		pnr.remove();
 
 		// création d'une couche geoJson qui appelle le fichier "pah_perim.geojson"			
 		//var pah = $.getJSON("pah_perim.geojson",function(dataPah)
