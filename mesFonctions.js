@@ -118,9 +118,9 @@ function initialize() {
 		// gestion de l'affichage de la couche selon le zoom													
 		map.on('zoomend', function() {
 			if (map.getZoom() === 7) {
-				circuit.setFilter(function() { return true;});
+				circuit.setOpacity(1);
 			} else {
-				circuit.setFilter(function() { return false; });
+				circuit.setOpacity(0);
 			}
 		});								
 
