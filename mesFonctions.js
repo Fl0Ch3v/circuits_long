@@ -116,19 +116,27 @@ function initialize() {
 										});				
 
 		// gestion de l'affichage de la couche selon le zoom													
-		map.on('zoomend', function() {
-			if (map.getZoom() === 7) {
-				circuit.setOpacity(1);
-			} else {
-				circuit.setOpacity(0);
-			}
-		});								
-
 		
+
+		map.on('zoomend', function () {
+			var currentZoom = map.getZoom();
+			var hasCircuitLayer1 = map.hasLayer(circuit);
+			var hasPnrLayer2 = map.hasLayer(pnr);
+		
+			if (currentZoom <= 13 && hasPnrLayer2) {
+				map.removeLayer(pnr);
+				map.addLayer(circuit);
+			}
+			if (currentZoom >= 14 && hasCircuitLayer1) {
+				map.removeLayer(circuit);
+				map.addLayer(pnr);
+			}
+		
+		})
 		// création d'un contrôle des couches pour modifier les couches de fond de plan	
 		var baseLayers = {
 			"OpenStreetMap": osmLayer,
-			"OSM_Géo2France2" : osmG2FLayer
+			"OSM_Géo2France" : osmG2FLayer
 		};
 
 		L.control.layers(baseLayers).addTo(map);
