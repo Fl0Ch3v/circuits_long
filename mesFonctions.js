@@ -123,14 +123,11 @@ function initialize() {
 		// création d'un contrôle des couches pour modifier les couches de fond de plan	
 		var baseLayers = {
 			"OpenStreetMap": osmLayer,
-			"OSM_Géo2France3" : osmG2FLayer
+			"OSM_Géo2France" : osmG2FLayer,
+			"circuits" : circuit,
+			"PNR" : pnr
 		};
 
 		L.control.layers(baseLayers).addTo(map);
 
-		var vectorLayers = {
-			"circuits" : circuit,
-			"PNR" : pnr
-		};
-		L.control.layers(vectorLayers).addTo(map);
 }
