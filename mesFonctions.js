@@ -114,7 +114,17 @@ function initialize() {
 				}
 						}).addTo(map);
 										});				
-															
+
+		// gestion de l'affichage de la couche selon le zoom													
+		map.on('zoomend', function() {
+			if (map.getZoom() > 7) {
+				circuit.setFilter(function() { return true;});
+			} else {
+				circuit.setFilter(function() { return false; });
+			}
+		});								
+
+		
 		// création d'un contrôle des couches pour modifier les couches de fond de plan	
 		var baseLayers = {
 			"OpenStreetMap": osmLayer,
